@@ -1,0 +1,236 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - FCC Trax</title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+
+
+<body>
+
+    <form runat="server" >
+
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+
+        <div class="navbar navbar-inverse navbar-fixed-top" style="height: 45px; float: Left; background-color:black ">
+
+            <div class="container" style="float: left; margin-top: 10px; text-align:center; vertical-align:middle; line-height:28px ">
+
+                <asp:Menu ID="Menu_Full" runat="server" Orientation="Horizontal" ForeColor="White" Font-Size="Small" Font-Bold="true" StaticEnableDefaultPopOutImage="False" StaticSelectedStyle-ItemSpacing="20px"  >
+                    <StaticMenuStyle BackColor="Black" Font-Bold="true" />
+                    <StaticMenuItemStyle BorderColor="White" BorderWidth="2px" BorderStyle="Solid" HorizontalPadding="3px" Width="120px" Height="30px" />
+                    <StaticHoverStyle BackColor="Black" ForeColor="Gold" />
+                    <DynamicSelectedStyle BackColor="Red"/>
+                    <DynamicMenuStyle BackColor="Black" BorderColor="White" ForeColor="Gold" BorderWidth="3px" BorderStyle="Solid" Width="180px" />
+                    <DynamicHoverStyle BackColor="Black" ForeColor="Gold" />
+
+                    <Items>
+                        <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home.aspx" ></asp:MenuItem>
+                        <asp:MenuItem Text="Data Files" Value="Data Files">
+                            <asp:MenuItem Text="Loco's" Value="Loco's" NavigateUrl="~/DataFiles/Loco_Details.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Task's" Value="" NavigateUrl="~/DataFiles/Tasks.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Part's" Value="Part's" NavigateUrl="~/DataFiles/Parts.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Trip Data" Value="Trip Data" NavigateUrl="~/DataFiles/Trip_Data.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Work Orders" Value="Work Orders" NavigateUrl="~/DataFiles/Work_Orders.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Task Events" Value="Task Events" NavigateUrl="~/DataFiles/Task_Events.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Customer Contract" Value="Customer Contract" NavigateUrl="~/CustomerContract.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Fast Facts" Value="Loco Fast Facts" NavigateUrl="~/DataFiles/Loco_Fast_Facts.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Task Events Import" Value="Task Events Import" NavigateUrl="~/DataFiles/Import_TaskEvents.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Job Plans" Value="Job Plans" NavigateUrl="~/DataFiles/Job_Plans.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Loco Tracker" Value="Loco Tracker">
+                            <asp:MenuItem Text="AM/PM Report" Value="AMPM Report" NavigateUrl="~/LocoTracker/AMPM_Report.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Forward Requirements" Value="Forward Requirements" NavigateUrl="~/LocoTracker/ForwardRequirements.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Locos In Depot" Value="Locos in Depot" NavigateUrl="~/LocoTracker/InDepot.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Released Locos" Value="Released Locos" NavigateUrl="~/LocoTracker/ReleasedLocos.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="All Visits" Value="All Visits" NavigateUrl="~/LocoTracker/AllVisits.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Tracker Work Plans" Value="Loco Tracker Work Plans" NavigateUrl="~/LocoTracker/WorkPlan.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Tracker LMR" Value="Loco Tracker LMR" NavigateUrl="~/LocoTracker/LocoTrackerLMR.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Tracker Locos" Value="Loco Tracker Locos" NavigateUrl="~/LocoTrackerLocos.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Tracker Visits" Value="Loco Tracker Visits" NavigateUrl="~/Visits.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Backup Loco Tracker" Value="Backup Loco Tracker" NavigateUrl="~/LocoTracker/Backup_LocoTracker.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Tracker Sites" Value="Loco Tracker Sites" NavigateUrl="~/LocoTrackerSites.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Tracker Buildings" Value="Loco Tracker Buildings" NavigateUrl="~/LocoTracker/LocoTrackerBuildings.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Tracker Slots" Value="Loco Tracker Slots" NavigateUrl="~/LocoTracker/LocoTracker_Slots.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Tracker Tables" Value="Loco Tracker Tables" NavigateUrl="~/LocoTracker/LocoTracker_Tables.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Processing" Value="Processing" >
+                            <asp:MenuItem Text="Schedule" Value="Schedule" NavigateUrl="~/Processing/Maintenance_Schedule.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="LMR" Value="LMR" NavigateUrl="~/Processing/LMR.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Benchmarking data" Value="Benchmarking data" NavigateUrl="~/Processing/Benchmarking.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Late forms" Value="Late Forms" NavigateUrl="~/Processing/Late_Forms.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="LMI's" Value="LMI's" NavigateUrl="~/Processing/LMI_New.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="LMI Parts List" Value="LMI Parts List" NavigateUrl="~/Processing/LMI_Parts_List.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Labour Variance" Value="Labour Variance" NavigateUrl="~/Processing/LabourVariance.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Work Order Import" Value="Work Order Import" NavigateUrl="~/Processing/Work_Order_Import.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Failure Tracking" Value="Failure_Tracking" NavigateUrl="~/Processing/Failure_Tracking.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Wheels Management" Value="Wheels_Management" NavigateUrl="~/Processing/Wheels_Management.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Reports" Value="Reports" >
+                            <asp:MenuItem Text="AM/PM Report" Value="AMPM Report" NavigateUrl="~/LocoTracker/AMPM_Report.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Tactical Report" Value="Tactical Report" NavigateUrl="~/Reports/TacticalReport.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="90 Day Delivery Graph" Value="90 Day Delivery Graph" NavigateUrl="~/Reports/NinetyDayDeliveryGraph.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="LMR Parts Forecast" Value="LMR Parts Forecast" NavigateUrl="~/Forecasts/LMR_Parts_Forecast.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Loco Class Report" Value="Loco Class Report" NavigateUrl="~/Reports/Loco_Class_Report.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="SCT Status Report" Value="SCT Status Report" NavigateUrl="~/Reports/SCTStatusReport.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Aurizon Status Report" Value="Aurizon Status Report" NavigateUrl="~/Reports/AurizonDailyReport.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Campaign Status Report" Value="Campaign Status Report" NavigateUrl="~/Reports/Campaign_Status_Report.aspx" ></asp:MenuItem>                            
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="KPIs" Value="KPIs" >
+                            <asp:MenuItem Text="Engineering Dashboard" Value="Engineering Dashboard" NavigateUrl="~/KPIs/Engineering_Dashboard.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Contract Failure Incidents" Value="Contract Failure Incidents" NavigateUrl="~/KPIs/Contract_Failure_Incidents.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Availability" Value="Availability" NavigateUrl="~/KPIs/Monthly_Availability.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Kilometres" Value="Kilometres" NavigateUrl="~/KPIs/Monthly_Kilometres.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Monthly FLY" Value="Monthly FLY" NavigateUrl="~/KPIs/Monthly_Fly.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Monthly Contract Failures" Value="Monthly Contract Failures" NavigateUrl="~/KPIs/Contract_Failures.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Executive Summary" Value="Executive Summary" NavigateUrl="~/KPIs/Executive_Summary.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="LMR Parts Forecast" Value="LMR Parts Forecast" NavigateUrl="~/Forecasts/LMR_Parts_Forecast.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Inspection Forecast" Value="Inspection Forecast" NavigateUrl="~/Forecasts/Inspection_Forecast.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Tactical Meeting" Value="Tactical Meeting" >
+                            <asp:MenuItem Text="Overdue Inspections" Value="Overdue Inspections" NavigateUrl="~/TacticalMeeting/Overdue_Inspections.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Overdue Trips" Value="Overdue Trips" NavigateUrl="~/TacticalMeeting/OverdueTrips.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Setup" Value="Setup" NavigateUrl="~/Default.aspx" >
+                            <asp:MenuItem Text="Class Setup" Value="Class Setup" NavigateUrl="~/Setup/Class.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Depots" Value="Depots" NavigateUrl="~/Setup/Depots.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Customer Setup" Value="Customer Setup" NavigateUrl="~/Setup/Customers.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Contract Setup" Value="Contract Setup" NavigateUrl="~/Setup/Contracts.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Fleet Setup" Value="Fleet Setup" NavigateUrl="~/Setup/Fleets.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Late Form Rates" Value="Late Form Rates" NavigateUrl="~/Setup/Late_Form_Rates.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Rostered Labour" Value="Rostered Labour" NavigateUrl="~/Setup/Rostered_Labour.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Week Dates" Value="Week Dates" NavigateUrl="~/Setup/Weeks.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Stock Locations" Value="Stock Locations" NavigateUrl="~/Setup/Stock_Locations.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="My Settings" Value="My Settings" NavigateUrl="~/Setup/MySettings.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="User Setup" Value="User Setup" NavigateUrl="~/Setup/Users.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Depot Maps" Value="Depot Maps" NavigateUrl="~/Setup/Depot_Maps.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+
+                <asp:Menu ID="Menu_Help_Desk" runat="server" Orientation="Horizontal" ForeColor="White" Font-Size="Small" Font-Bold="true" StaticEnableDefaultPopOutImage="False" StaticSelectedStyle-ItemSpacing="20px" Visible="false" >
+                    <StaticMenuStyle BackColor="Black" Font-Bold="true" />
+                    <StaticMenuItemStyle BorderColor="White" BorderWidth="2px" BorderStyle="Solid" HorizontalPadding="3px" Width="120px" Height="30px" />
+                    <StaticHoverStyle BackColor="Black" ForeColor="Gold" />
+                    <DynamicSelectedStyle BackColor="Red"/>
+                    <DynamicMenuStyle BackColor="Black" BorderColor="White" ForeColor="Gold" BorderWidth="3px" BorderStyle="Solid" Width="180px" />
+                    <DynamicHoverStyle BackColor="Black" ForeColor="Gold" />
+
+                    <Items>
+                        <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home.aspx" ></asp:MenuItem>
+                        <asp:MenuItem Text="Data Files" Value="Data Files">
+                            <asp:MenuItem Text="Loco Details" Value="Loco Details" NavigateUrl="~/DataFiles/LocoMaster.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Standard Tasks" Value="" NavigateUrl="~/DataFiles/StandardTasks.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Parts" Value="Parts" NavigateUrl="~/DataFiles/Parts.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Trip Data" Value="Trip Data" NavigateUrl="~/DataFiles/Trip_Data.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Work Orders" Value="Work Orders" NavigateUrl="~/DataFiles/Work_Orders.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Loco Tracker" Value="Loco Tracker">
+                            <asp:MenuItem Text="AM/PM Report" Value="AMPM Report" NavigateUrl="~/LocoTracker/AMPM_Report.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Forward Requirements" Value="Forward Requirements" NavigateUrl="~/LocoTracker/ForwardRequirements.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Locos In Depot" Value="Locos in Depot" NavigateUrl="~/LocoTracker/InDepot.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Released Locos" Value="Released Locos" NavigateUrl="~/LocoTracker/ReleasedLocos.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="All Visits" Value="All Visits" NavigateUrl="~/LocoTracker/AllVisits.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Processing" Value="Processing" >
+                            <asp:MenuItem Text="LMR data" Value="LMR data" NavigateUrl="~/Processing/LMR.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Benchmarking data" Value="Benchmarking data" NavigateUrl="~/Processing/Benchmarking.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Late forms" Value="Late Forms" NavigateUrl="~/Processing/Late_Forms.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="LMI's" Value="LMI's" NavigateUrl="~/Processing/LMI.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="LMI Parts List" Value="LMI Parts List" NavigateUrl="~/Processing/LMI_Parts_List.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Labour Variance" Value="Labour Variance" NavigateUrl="~/Processing/LabourVariance.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Work Order Import" Value="Work Order Import" NavigateUrl="~/Processing/WorkOrderImports.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Reports" Value="Reports" >
+                            <asp:MenuItem Text="AM/PM Report" Value="AMPM Report" NavigateUrl="~/LocoTracker/AMPM_Report.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Tactical Report" Value="Tactical Report" NavigateUrl="~/Reports/TacticalReport.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="90 Day Delivery Graph" Value="90 Day Delivery Graph" NavigateUrl="~/Reports/NinetyDayDeliveryGraph.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Setup" Value="Setup" NavigateUrl="~/Default.aspx" >
+                            <asp:MenuItem Text="Rostered Labour" Value="Rostered Labour" NavigateUrl="~/Setup/Rostered_Labour.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Stock Locations" Value="Stock Locations" NavigateUrl="~/Setup/Stock_Locations.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="My Settings" Value="My Settings" NavigateUrl="~/Setup/MySettings.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+
+                <asp:Menu ID="Menu_Stock_Control" runat="server" Orientation="Horizontal" ForeColor="White" Font-Size="Small" Font-Bold="true" StaticEnableDefaultPopOutImage="False" StaticSelectedStyle-ItemSpacing="20px" Visible="false" >
+                    <StaticMenuStyle BackColor="Black" Font-Bold="true" />
+                    <StaticMenuItemStyle BorderColor="White" BorderWidth="2px" BorderStyle="Solid" HorizontalPadding="3px" Width="120px" Height="30px" />
+                    <StaticHoverStyle BackColor="Black" ForeColor="Gold" />
+                    <DynamicSelectedStyle BackColor="Red"/>
+                    <DynamicMenuStyle BackColor="Black" BorderColor="White" ForeColor="Gold" BorderWidth="3px" BorderStyle="Solid" Width="180px" />
+                    <DynamicHoverStyle BackColor="Black" ForeColor="Gold" />
+
+                    <Items>
+                        <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home.aspx" ></asp:MenuItem>
+                        <asp:MenuItem Text="Data Files" Value="Data Files">
+                            <asp:MenuItem Text="Loco Details" Value="Loco Details" NavigateUrl="~/DataFiles/LocoMaster.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Standard Tasks" Value="" NavigateUrl="~/DataFiles/StandardTasks.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Parts" Value="Parts" NavigateUrl="~/DataFiles/Parts.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Trip Data" Value="Trip Data" NavigateUrl="~/DataFiles/Trip_Data.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Work Orders" Value="Work Orders" NavigateUrl="~/DataFiles/Work_Orders.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Processing" Value="Processing" >
+                            <asp:MenuItem Text="LMI's" Value="LMI's" NavigateUrl="~/Processing/LMI_New.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="LMI Parts List" Value="LMI Parts List" NavigateUrl="~/Processing/LMI_Parts_List.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="LMR Parts Forecast" Value="LMR Parts Forecast" NavigateUrl="~/Forecasts/LMR_Parts_Forecast.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Labour Variance" Value="Labour Variance" NavigateUrl="~/Processing/LabourVariance.aspx" ></asp:MenuItem>
+                            <asp:MenuItem Text="Work Order Import" Value="Work Order Import" NavigateUrl="~/Processing/Work_Order_Import.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Setup" Value="Setup" NavigateUrl="~/Default.aspx" >
+                            <asp:MenuItem Text="My Settings" Value="My Settings" NavigateUrl="~/Setup/MySettings.aspx" ></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+
+            </div>
+
+            <div class="container" style="float: right; margin-top: 5px;">
+                <asp:Image ID="Image_Progress_Rail_Icon" runat="server" ImageUrl="~/Images/Progress_Rail_Icon_38x116.png" ImageAlign="AbsMiddle" />
+            </div>
+
+        </div>
+
+               
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <%--This is where the ASPX pages are run.--%>
+            </asp:ContentPlaceHolder>
+            <%--<hr />--%>
+        </div>
+
+    </form>
+
+</body>
+
+</html>
